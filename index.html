@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +40,7 @@
       --font-display: 'Cabinet Grotesk', 'Satoshi', sans-serif;
       --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     [data-theme="dark"] {
       --color-bg: #171614;
       --color-surface: #1c1b19;
@@ -57,6 +58,7 @@
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.24);
       --shadow-md: 0 12px 32px rgba(0,0,0,0.35);
     }
+
     *,:before,:after{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:var(--color-bg);color:var(--color-text)}
@@ -88,16 +90,17 @@
     .hero-visual{display:grid;gap:var(--space-4)}
     .visual-panel{background:var(--color-bg);border:1px solid var(--color-divider);border-radius:24px;padding:var(--space-5)}
     .visual-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-5)}
-    .dot-row{display:flex;gap:8px}.dot{width:10px;height:10px;border-radius:50%;background:var(--color-border)}
+    .dot-row{display:flex;gap:8px}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--color-border)}
     .chips{display:flex;flex-wrap:wrap;gap:var(--space-3)}
     .chip{padding:0.55rem 0.8rem;border-radius:var(--radius-full);background:var(--color-surface-2);border:1px solid var(--color-border);font-size:var(--text-sm)}
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin-top:var(--space-4)}
     .stat{padding:var(--space-4);background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:18px}
     .stat strong{display:block;font-size:var(--text-lg);font-family:var(--font-display)}
     section{padding:var(--space-12) 0}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:var(--space-4);margin-bottom:var(--space-8)}
-    .section-head h2{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-0.04em}
-    .section-head p{color:var(--color-text-muted);max-width:48ch}
+    .section-head{display:grid;grid-template-columns:1.2fr 1fr;align-items:start;gap:var(--space-4);margin-bottom:var(--space-8)}
+    .section-head h2{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-0.04em;margin:0}
+    .section-head p{color:var(--color-text-muted);max-width:48ch;margin:0}
     .offer-grid,.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
     .card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:24px;padding:var(--space-6);box-shadow:var(--shadow-sm);content-visibility:auto}
     .card h3{font-size:var(--text-lg);margin:0 0 var(--space-3);font-family:var(--font-display);letter-spacing:-0.03em}
@@ -113,17 +116,23 @@
     .cta-wrap p{color:var(--color-text-muted);margin:var(--space-3) 0 0}
     footer{padding:var(--space-6) 0 var(--space-10);border-top:1px solid var(--color-divider);color:var(--color-text-muted);font-size:var(--text-sm)}
     .footer-row{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
+
     @media (max-width: 900px){
       .hero-grid,.about,.cta-wrap,.offer-grid,.feature-grid{grid-template-columns:1fr}
-      .section-head{align-items:start;flex-direction:column}
+      .section-head{align-items:start;grid-template-columns:1fr}
       .nav-links{display:none}
       .stats{grid-template-columns:1fr}
     }
-    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *,:before,:after{transition:none!important}
+    }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Activefitco home">
@@ -132,14 +141,19 @@
         </svg>
         <span class="brand-name">Activefitco</span>
       </a>
+
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#products">Products</a>
         <a href="#why-us">Why Us</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light mode">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
       </button>
     </div>
   </header>
@@ -156,12 +170,12 @@
             <a class="btn btn-secondary" href="#products">Browse categories</a>
           </div>
         </div>
+
         <div class="hero-card" aria-label="Store overview panel">
           <div class="hero-visual">
             <div class="visual-panel">
               <div class="visual-top">
                 <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <strong>Store focus</strong>
               </div>
               <div class="chips">
                 <span class="chip">PC components</span>
@@ -171,6 +185,7 @@
                 <span class="chip">General merchandise</span>
               </div>
             </div>
+
             <div class="stats">
               <div class="stat"><strong>Fast</strong><span>Simple shopping experience</span></div>
               <div class="stat"><strong>Clean</strong><span>Easy product categories</span></div>
@@ -187,19 +202,21 @@
           <div>
             <h2>Core categories</h2>
           </div>
-          <p>Keep the message simple: highlight the main items your store is known for, then make it easy for customers to reach out or visit.</p>
         </div>
+
         <div class="offer-grid">
           <article class="card">
             <span class="card-label">Hardware</span>
             <h3>Computer components</h3>
             <p>Desktop parts, RAM, SSDs, cooling gear, power supplies, and practical upgrades for workstations or home builds.</p>
           </article>
+
           <article class="card">
             <span class="card-label">Accessories</span>
             <h3>Peripherals and setup gear</h3>
             <p>Keyboards, mice, headsets, cables, adapters, monitors, and other essentials that complete a clean desk setup.</p>
           </article>
+
           <article class="card">
             <span class="card-label">Retail</span>
             <h3>Everyday merchandise</h3>
@@ -209,45 +226,17 @@
       </div>
     </section>
 
-    <section id="why-us">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Why customers choose Activefitco</h2>
-          </div>
-          <p>A retail site works best when the layout is clear, mobile-friendly, and built around a few obvious actions instead of too many distractions.</p>
-        </div>
-        <div class="feature-grid">
-          <article class="card">
-            <h3>Clear product focus</h3>
-            <p>Your homepage immediately tells visitors what you sell, which is a proven best practice for small business and ecommerce website design.</p>
-          </article>
-          <article class="card">
-            <h3>Mobile-ready layout</h3>
-            <p>The page is responsive so the site stays readable and usable on phones, tablets, and desktops.</p>
-          </article>
-          <article class="card">
-            <h3>Simple calls to action</h3>
-            <p>The design uses direct buttons and short sections so visitors can quickly browse, contact, or learn about the store.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section id="about">
       <div class="container about">
         <div class="about-box">
           <span class="card-label">About the brand</span>
-          <h2 style="font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-0.04em;margin:0 0 var(--space-4)">Built for a straightforward retail presence.</h2>
-          <p style="color:var(--color-text-muted)">This starter website gives Activefitco a polished online home with a clean theme, a custom logo mark, product sections, and a contact area you can expand later with inventory, pricing, or an online catalog.</p>
+          <p style="color:var(--color-text-muted)">Activefitco offers a professional online storefront with a streamlined design, clear product categories, and a dedicated contact section ready for customer inquiries, pricing details, and future catalog expansion.</p>
         </div>
+
         <div class="about-box">
-          <span class="card-label">What you can add next</span>
-          <div class="check-list">
-            <div class="check"><span>1</span><div>Add store hours, address, and phone number.</div></div>
-            <div class="check"><span>2</span><div>Replace sample text with your exact hardware brands and featured products.</div></div>
-            <div class="check"><span>3</span><div>Connect the contact button to email, Shopify, or a full ecommerce catalog later.</div></div>
-          </div>
+          <span class="card-label">Inspiration</span>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-0.04em;margin:0 0 var(--space-4)">Built to reflect the practical, dependable spirit of modern retail.</h2>
+          <p style="color:var(--color-text-muted);margin:0">Activefitco is inspired by clear product selection, honest value, and a shopping experience that feels effortless whether you're building a PC or stocking a desk setup. This page highlights what matters most: trusted gear, straightforward offers, and a simple path to connect.</p>
         </div>
       </div>
     </section>
@@ -257,10 +246,10 @@
         <div class="cta-wrap">
           <div>
             <span class="card-label">Contact</span>
-            <h2 style="font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-0.04em;margin:0">Ready to make Activefitco live?</h2>
-            <p>Use this page as your first homepage, then add your real contact info, social links, and product details.</p>
+            <h2 style="font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-0.04em;margin:0">Need hardware, accessories, or a fast quote?</h2>
+            <p>Reach out to Activefitco for product inquiries, pricing, and ordering support via email.</p>
           </div>
-          <a class="btn btn-primary" href="mailto:hello@activefitco.com">hello@activefitco.com</a>
+          <a class="btn btn-primary" href="mailto:activefitco11@gmail.com">activefitco11@gmail.com</a>
         </div>
       </div>
     </section>
@@ -277,15 +266,19 @@
     (function () {
       const toggle = document.querySelector('[data-theme-toggle]');
       const root = document.documentElement;
-      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      let theme = 'dark';
+
       const renderIcon = () => {
         toggle.innerHTML = theme === 'dark'
           ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
           : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
         toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
       };
+
       root.setAttribute('data-theme', theme);
       renderIcon();
+
       toggle.addEventListener('click', function () {
         theme = theme === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', theme);
